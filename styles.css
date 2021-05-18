@@ -70,19 +70,54 @@ form {
   padding: 30px 0;
   box-shadow: 0 8px rgba(62, 60, 73, 0.2);
 }
-form input {
+.form__control {
   width: 85%;
-  height: 55px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
   margin-bottom: 20px;
+}
+form input {
+  width: 100%;
+  height: 55px;
+  font-weight: 700;
   border-radius: 5px;
   padding: 15px;
   border: 1px solid hsl(246, 25%, 77%);
 }
-
 form input::placeholder {
   font-weight: 600;
   color: hsl(249, 10%, 26%);
   opacity: 0.7;
+}
+form .error__message {
+  color: hsl(0, 100%, 74%);
+  font-size: 12px;
+  padding-top: 5px;
+  align-self: flex-end;
+  display: none;
+}
+form .error__icon {
+  width: 20px;
+  height: 20px;
+  content: "!";
+  background-color: hsl(0, 100%, 74%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3px;
+  position: absolute;
+  right: 20px;
+  top: 17px;
+  visibility: hidden;
+}
+.form__control.error .error__icon {
+  visibility: visible;
+}
+.form__control.error .error__message {
+  display: block;
 }
 form button {
   font-weight: 600;
@@ -96,9 +131,13 @@ form button {
   text-transform: uppercase;
   box-shadow: 0 5px rgb(11, 175, 104);
   margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
 }
 form button:hover {
   opacity: 0.6;
+}
+form button:active {
+  opacity: 1;
 }
 .t-and-c {
   width: 80%;
@@ -119,6 +158,7 @@ form button:hover {
 
 @media (min-width: 1024px) {
   body {
+    background: url(images/bg-intro-desktop.png), hsl(0, 100%, 74%);
     height: 100vh;
   }
   main {
@@ -133,7 +173,7 @@ form button:hover {
     padding-right: 50px;
   }
   .intro__heading {
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 3rem;
   }
   .free__trial {
@@ -141,5 +181,12 @@ form button:hover {
   }
   form {
     padding: 50px 0;
+  }
+}
+
+@media (min-width: 1440px) {
+  .intro__heading {
+    font-size: 3rem;
+    line-height: 3rem;
   }
 }
