@@ -92,6 +92,8 @@ form input::placeholder {
 }
 form .error__message {
   color: hsl(0, 100%, 74%);
+  font-weight: 500;
+  font-style: italic;
   font-size: 12px;
   padding-top: 5px;
   align-self: flex-end;
